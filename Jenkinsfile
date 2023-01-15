@@ -41,7 +41,7 @@ pipeline {
             }
             steps {
                     script {
-                        sh "docker pull minotaur/react-app:${env.BUILD_NUMBER}"
+                        sh "docker pull minotaur90/react-app:${env.BUILD_NUMBER}"
                         try {
                             sh "docker stop react-app"
                             sh "docker rm react-app"
@@ -80,7 +80,7 @@ pipeline {
                 input 'Does the staging environment look OK? Did You get 200 response?'
                  milestone(1)
                     script {
-                        sh "docker pull wessamabdelwahab/react-app:${env.BUILD_NUMBER}"
+                        sh "docker pull minotaur90/react-app:${env.BUILD_NUMBER}"
                         try {
                             sh "docker stop react-app"
                             sh "docker rm react-app"
