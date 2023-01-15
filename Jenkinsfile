@@ -15,7 +15,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("hotshot90/react-app")
+                    app = docker.build("mintaur90/react-app")
                     app.inside {
                         sh 'echo $(curl localhost:1233)'
                     }
@@ -41,14 +41,14 @@ pipeline {
             }
             steps {
                     script {
-                        sh "docker pull hotshot90/react-app:${env.BUILD_NUMBER}"
+                        sh "docker pull minotaur/react-app:${env.BUILD_NUMBER}"
                         try {
                             sh "docker stop react-app"
                             sh "docker rm react-app"
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "docker run --restart always --name react-app -p 1233:80 -d hotshot90/react-app:${env.BUILD_NUMBER}"
+                        sh "docker run --restart always --name react-app -p 1233:80 -d minotaur90/react-app:${env.BUILD_NUMBER}"
                     }
             }
         }
@@ -87,7 +87,7 @@ pipeline {
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "docker run --restart always --name react-app -p 1233:80 -d hotshot90/react-app:${env.BUILD_NUMBER}"
+                        sh "docker run --restart always --name react-app -p 1233:80 -d minotaur90/react-app:${env.BUILD_NUMBER}"
                     }
             }
         }
